@@ -365,7 +365,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         left: screenWidth * 0.0675, // 17/371 (relative to card) - 69-52=17
                         top: screenHeight * 0.045, // 34/748 (relative to card) - 473-439=34
                         child: Container(
-                          width: screenWidth * 0.628, // 233/371
+                          width: screenWidth * 0.755, // Adjusted to fit properly within white card
                           height: screenHeight * 0.0067, // 5/748
                           decoration: ShapeDecoration(
                             color: const Color(0xFFE4E1E1),
@@ -378,13 +378,13 @@ class _HomeScreenState extends State<HomeScreen> {
 
                       // Category labels with exact positioning
                       Positioned(
-                        left: screenWidth * 0.0675, // 17/371 (relative to card) - 69-52=17
+                        left: screenWidth * 0.0675, // Left edge
                         top: screenHeight * 0.063, // 47/748 (relative to card) - 486-439=47
                         child: Text(
                           '떼쓰기',
                           style: TextStyle(
                             color: const Color(0xFF007BEB),
-                            fontSize: screenWidth * 0.0216, // 8/371
+                            fontSize: screenWidth * 0.03, // 8/371
                             fontFamily: 'Pretendard',
                             fontWeight: FontWeight.w500,
                             height: 1.40,
@@ -392,13 +392,13 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                       Positioned(
-                        left: screenWidth * 0.342, // 127/371 (relative to card) - 179-52=127
+                        left: screenWidth * 0.42, // Center position
                         top: screenHeight * 0.063, // 47/748 (relative to card) - 486-439=47
                         child: Text(
                           '진정',
                           style: TextStyle(
                             color: const Color(0xFF007BEB),
-                            fontSize: screenWidth * 0.0216, // 8/371
+                            fontSize: screenWidth * 0.03, // 8/371
                             fontFamily: 'Pretendard',
                             fontWeight: FontWeight.w500,
                             height: 1.40,
@@ -406,13 +406,13 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                       Positioned(
-                        left: screenWidth * 0.636, // 236/371 (relative to card) - 288-52=236
+                        left: screenWidth * 0.77, // Right edge
                         top: screenHeight * 0.063, // 47/748 (relative to card) - 486-439=47
                         child: Text(
                           '교육',
                           style: TextStyle(
                             color: const Color(0xFF007BEB),
-                            fontSize: screenWidth * 0.0216, // 8/371
+                            fontSize: screenWidth * 0.03, // 8/371
                             fontFamily: 'Pretendard',
                             fontWeight: FontWeight.w500,
                             height: 1.40,
@@ -430,7 +430,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             '측정 데이터가 없습니다!',
                             style: TextStyle(
                               color: const Color(0xFF007BEB),
-                              fontSize: screenWidth * 0.0324, // 12/371
+                              fontSize: screenWidth * 0.035, // 12/371
                               fontFamily: 'Pretendard',
                               fontWeight: FontWeight.w600,
                               height: 1.40,
