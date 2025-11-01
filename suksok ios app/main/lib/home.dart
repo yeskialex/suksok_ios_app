@@ -71,22 +71,42 @@ class _HomeScreenState extends State<HomeScreen> {
 
                   SizedBox(height: screenHeight * 0.04),
 
-                  // Main title
-                  Text(
-                    '쑥쏙이는\n오늘도 열심히 성장중이에요!',
-                    style: TextStyle(
-                      color: const Color(0xFF007BEB),
-                      fontSize: screenWidth * 0.0485,
-                      fontFamily: 'Pretendard',
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-
-                  SizedBox(height: screenHeight * 0.04),
+                  // Spacer to maintain layout (where the title text was)
+                  SizedBox(height: screenHeight * 0.13),
 
                   // Blue dashboard card with overlaid buttons
                   Stack(
+                    clipBehavior: Clip.none, // Allow character to overflow if needed
                     children: [
+                      // Orange character positioned at top right of blue dashboard
+                      Positioned(
+                        right: -screenWidth * 0.01, // Slightly outside the blue card
+                        top: -screenHeight * 0.15, // Above the blue card
+                        child: Transform.rotate(
+                          angle: -0.01,
+                          child: SvgPicture.asset(
+                            'assets/character_at_home.svg',
+                            width: screenWidth * 0.35,
+                            height: screenHeight * 0.22,
+                          ),
+                        ),
+                      ),
+
+                      // Main title positioned in front of character
+                      Positioned(
+                        left: 0,
+                        top: -screenHeight * 0.12, // Position above the blue card
+                        child: Text(
+                          '쑥쏙이는\n오늘도 열심히 성장중이에요!',
+                          style: TextStyle(
+                            color: const Color(0xFF007BEB),
+                            fontSize: screenWidth * 0.055,
+                            fontFamily: 'Pretendard',
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ),
+
                       // Main blue container
                       Container(
                         width: screenWidth * 0.89,
