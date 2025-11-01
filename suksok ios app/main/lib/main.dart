@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'children_regis.dart';
+import 'registration/children_regis.dart';
 
 void main() {
   runApp(const MyApp());
@@ -56,8 +56,8 @@ class _SplashPageState extends State<SplashPage> {
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
             colors: [
-              Color(0xFF1E88E5),
-              Color(0xFF1976D2),
+              Color(0xFF007BEB),
+              Color(0xFF007BEB),
             ],
           ),
         ),

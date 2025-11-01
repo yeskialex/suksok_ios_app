@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'character_creation/1_camera.dart';
 
 class ChildrenRegistrationFlow extends StatefulWidget {
   const ChildrenRegistrationFlow({super.key});
@@ -490,22 +491,10 @@ class _ChildrenRegistrationFlowState extends State<ChildrenRegistrationFlow> {
   }
 
   void _completeRegistration() {
-    // Handle completion of registration
-    // You can navigate to the next screen or save data here
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: const Text('등록 완료'),
-        content: const Text('자녀 등록이 완료되었습니다!'),
-        actions: [
-          TextButton(
-            onPressed: () {
-              Navigator.of(context).pop();
-              // Navigate to main app or next screen
-            },
-            child: const Text('확인'),
-          ),
-        ],
+    // Navigate directly to camera screen
+    Navigator.of(context).pushReplacement(
+      MaterialPageRoute(
+        builder: (context) => const CameraScreen(),
       ),
     );
   }
