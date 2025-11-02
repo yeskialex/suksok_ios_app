@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'previous_result.dart';
+import 'scan.dart';
+import 'logs.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -86,7 +89,22 @@ class _HomeScreenState extends State<HomeScreen> {
 
                   // Blue dashboard card with overlaid buttons
                   Stack(
+                    clipBehavior: Clip.none, // Allow character to overflow if needed
                     children: [
+                      // Orange character positioned at top right of blue dashboard
+                      Positioned(
+                        right: -screenWidth * 0.01, // Slightly outside the blue card
+                        top: -screenHeight * 0.15, // Above the blue card
+                        child: Transform.rotate(
+                          angle: -0.01,
+                          child: SvgPicture.asset(
+                            'assets/character_at_home.svg',
+                            width: screenWidth * 0.35,
+                            height: screenHeight * 0.22,
+                          ),
+                        ),
+                      ),
+
                       // Main blue container
                       Container(
                         width: screenWidth * 0.89,
@@ -249,8 +267,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                   Expanded(
                                     child: TextButton(
                                       onPressed: () {
-                                        // Handle 이전결과 button press
-                                        print('이전결과 pressed');
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => const PreviousResultScreen(),
+                                          ),
+                                        );
                                       },
                                       style: TextButton.styleFrom(
                                         padding: EdgeInsets.symmetric(vertical: screenHeight * 0.015),
@@ -276,8 +298,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                   Expanded(
                                     child: TextButton(
                                       onPressed: () {
-                                        // Handle 성장스캔 button press
-                                        print('성장스캔 pressed');
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => const ScanScreen(),
+                                          ),
+                                        );
                                       },
                                       style: TextButton.styleFrom(
                                         padding: EdgeInsets.symmetric(vertical: screenHeight * 0.015),
@@ -354,22 +380,32 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                       // Front layer - main white container
-                      Container(
-                        width: screenWidth * 0.89, // 267/371 (adjusted to match dashboard width)
-                        height: screenHeight * 0.172, // 129/748
-                        decoration: ShapeDecoration(
-                          color: Colors.white,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8.37),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const LogsScreen(),
+                            ),
+                          );
+                        },
+                        child: Container(
+                          width: screenWidth * 0.89, // 267/371 (adjusted to match dashboard width)
+                          height: screenHeight * 0.172, // 129/748
+                          decoration: ShapeDecoration(
+                            color: Colors.white,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8.37),
+                            ),
+                            shadows: const [
+                              BoxShadow(
+                                color: Color(0x19000000),
+                                blurRadius: 4,
+                                offset: Offset(2, 2),
+                                spreadRadius: 0,
+                              )
+                            ],
                           ),
-                          shadows: const [
-                            BoxShadow(
-                              color: Color(0x19000000),
-                              blurRadius: 4,
-                              offset: Offset(2, 2),
-                              spreadRadius: 0,
-                            )
-                          ],
                         ),
                       ),
 
