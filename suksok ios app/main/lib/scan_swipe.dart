@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'scan_analysis.dart';
 
 class ScanSwipeScreen extends StatefulWidget {
   const ScanSwipeScreen({super.key});
@@ -39,8 +40,8 @@ class _ScanSwipeScreenState extends State<ScanSwipeScreen> {
           padding: EdgeInsets.only(left: screenWidth * 0.054),
           child: SvgPicture.asset(
             'assets/logo2.svg',
-            width: screenWidth * 0.05,
-            height: screenHeight * 0.025,
+            width: screenWidth * 0.04,
+            height: screenHeight * 0.02,
           ),
         ),
         leadingWidth: screenWidth * 0.2,
@@ -145,7 +146,12 @@ class _ScanSwipeScreenState extends State<ScanSwipeScreen> {
                     height: screenHeight * 0.057,
                     child: ElevatedButton(
                       onPressed: () {
-                        // Handle photo analysis action
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const ScanAnalysisScreen(),
+                          ),
+                        );
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: const Color(0xFF007BEB),
